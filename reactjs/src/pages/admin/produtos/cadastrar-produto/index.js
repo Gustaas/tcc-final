@@ -26,7 +26,7 @@ export default function CadastrarProduto () {
     */
 
     async function inserir() {
-        if (nome !=='' && preco > 0 && categoria !=='' && genero !== '' && img !=='' && desc !=='' && time !='' )
+        if (nome !== '' && preco > 0 && categoria !== '' && genero !== '' && img !=='' && desc !== '' && time !=='' )
             {
                 let r = await api.inserir(nome, genero, desc, categoria, preco, img, time);
                 if (r.erro)
@@ -36,6 +36,8 @@ export default function CadastrarProduto () {
         } else {
             toast.dark('Campos Inválidos')
         }
+
+        limparCampos();
     }
 
     function limparCampos () {
